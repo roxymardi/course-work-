@@ -24,7 +24,8 @@ class Menu:
 		self.progressMonitorBtn = tk.Button(self.root, text = "progress monitor", command = self.progressMonitorWindow)
 		self.progressMonitorBtn.place(y=120, x = 400, width = 100, height=50)
 		
-		#self.shopBtn =
+		self.shopBtn = tk.Button(self.root, text = "shop", command = self.shopWindow
+		self.shopBtn.place(y=190, x = 400, width = 100, height = 50)
 		
 		#self.lifeEventsBtn = 
 		
@@ -35,6 +36,10 @@ class Menu:
 	def progressMonitorWindow(self):
 		progressScreen = tk.Toplevel(self.root)
 		screen = ProgressMonitor(progressScreen)
+	
+	def shopWindow(self):
+		shopScreen = tk.Toplevel(self.root)
+		screen = Shop(shopScreen)
 		
 class Countdown:
 		def __init__(self, root):
@@ -47,6 +52,12 @@ class ProgressMonitor:
 				root.title("Progress Monitor")
 				root.geometry("800x600")
 				self.root = root
+
+class Shop:
+		def __init__(self, root):
+			root.title("Progress Monitor")
+			root.geometry("800x600")
+			self.root = root
 	
 
 
