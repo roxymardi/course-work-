@@ -1,0 +1,86 @@
+import tkinter as tk
+from tkinter import PhotoImage
+
+class StartScreen:
+	def __init__(self, root):
+		self.root = root
+		self.root.geometry("800x600")
+
+		self.menuBtn = tk.Button(self.root, text = "menu", command = self.menuWindow)
+		self.menuBtn.place(y=20, x=720, width=50, height=50)
+
+		self.roomImage = PhotoImage(file="emptyroom.png")
+		self.roomLabel = tk.Label(self.root, image = self.roomImage)
+		self.roomLabel.place(y=80, x=-40, width=900, height=500)
+		
+	def menuWindow(self):
+		newWindow = tk.Toplevel(self.root)
+		screen = Menu(newWindow)
+
+class Menu:
+	def __init__(self, root):
+		root.title("Menu")
+		root.geometry("800x600")
+		self.root = root
+		
+		self.menuLabel = tk.Label(self.root, text = "MENU", font=("Arial", 15))
+		self.menuLabel.place(y=5, x=400, width = 100, height = 50)
+		
+		self.countdownBtn = tk.Button(self.root, text = "countdown", command = self.countdownWindow)
+		self.countdownBtn.place(y=50, x=400, width=100, height = 50)
+		
+		self.progressMonitorBtn = tk.Button(self.root, text = "progress monitor", command = self.progressMonitorWindow)
+		self.progressMonitorBtn.place(y=120, x = 400, width = 100, height=50)
+		
+		self.shopBtn = tk.Button(self.root, text = "shop", command = self.shopWindow)
+		self.shopBtn.place(y=190, x = 400, width = 100, height = 50)
+		
+		self.lifeEventsBtn = tk.Button(self.root, text = "random life events", command = self.eventsWindow)
+		self.lifeEventsBtn.place(y=260, x=400, width=100, height=50)
+		
+	def countdownWindow(self):
+		countdownScreen = tk.Toplevel(self.root)
+		screen = Countdown(countdownScreen)
+	
+	def progressMonitorWindow(self):
+		progressScreen = tk.Toplevel(self.root)
+		screen = ProgressMonitor(progressScreen)
+	
+	def shopWindow(self):
+		shopScreen = tk.Toplevel(self.root)
+		screen = Shop(shopScreen)
+	
+	def eventsWindow(self):
+		eventsScreen = tk.Toplevel(self.root)
+		screen = Events(eventsScreen)
+		
+class Countdown:
+		def __init__(self, root):
+			root.title("Countdown")
+			root.geometry("800x600")
+			self.root = root
+
+class ProgressMonitor:
+			def __init__(self, root):
+				root.title("Progress Monitor")
+				root.geometry("800x600")
+				self.root = root
+
+class Shop:
+		def __init__(self, root):
+			root.title("Shop")
+			root.geometry("800x600")
+			self.root = root
+
+class Events:
+	def __init__(self, root):
+		root.title("Events")
+		root.geometry("800x600")
+		self.root = root
+		
+
+
+
+root = tk.Tk()
+object = StartScreen(root)
+root.mainloop()
